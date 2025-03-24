@@ -74,7 +74,7 @@ public class CategoryController {
 
     @PutMapping("/bookings/{id}")
     public Booking update(@PathVariable Long id, @RequestBody Booking booking) {
-        log.info("Atualizando categoria " + id + " " + booking);
+        log.info("Atualizando reserva " + id + " " + booking);
 
         // Obtém o Booking de dentro do ResponseEntity
         Booking existingBooking = getBooking(id).getBody();
