@@ -4,28 +4,38 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Random;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
+
+@Builder
+@NoArgsConstructor
+@Entity
+@AllArgsConstructor
+
 public class Booking {
-    
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String user;
     private String telefoneCliente;
-    private String emailCliente;
     private LocalDate dataReserva;
     private LocalTime horaReserva;
     private int quantidadePessoas;
-    private Boolean status;
     private int mesa;
 
-    public Booking(Long id, String user, String telefoneCliente, String emailCliente, LocalDate dataReserva,
+
+    public Booking(String user, String telefoneCliente, String emailCliente, LocalDate dataReserva,
             LocalTime horaReserva, int quantidadePessoas, Boolean status, int mesa) {
-        this.id = (id == null) ? new Random().nextLong() : id;
-        this.user = user;
         this.telefoneCliente = telefoneCliente;
-        this.emailCliente = emailCliente;
         this.dataReserva = dataReserva;
         this.horaReserva = horaReserva;
         this.quantidadePessoas = quantidadePessoas;
-        this.status = status;
         this.mesa = mesa;
     }
 
@@ -37,14 +47,6 @@ public class Booking {
         this.id = id;
     }
 
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
-
     public String getTelefoneCliente() {
         return telefoneCliente;
     }
@@ -53,13 +55,7 @@ public class Booking {
         this.telefoneCliente = telefoneCliente;
     }
 
-    public String getEmailCliente() {
-        return emailCliente;
-    }
-
-    public void setEmailCliente(String emailCliente) {
-        this.emailCliente = emailCliente;
-    }
+   
 
     public LocalDate getDataReserva() {
         return dataReserva;
@@ -85,13 +81,6 @@ public class Booking {
         this.quantidadePessoas = quantidadePessoas;
     }
 
-    public Boolean getStatus() {
-        return status;
-    }
-
-    public void setStatus(Boolean status) {
-        this.status = status;
-    }
 
     public int getMesa() {
         return mesa;
