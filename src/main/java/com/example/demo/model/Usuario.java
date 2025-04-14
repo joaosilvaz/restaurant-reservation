@@ -24,7 +24,6 @@ public class Usuario {
     private String emailCliente;
     private String validacao;
     
-
     public Usuario(String nome, String emailCliente, String validacao) {
         this.nome = nome;
         this.emailCliente = emailCliente;
