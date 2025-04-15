@@ -22,12 +22,12 @@ public class Usuario {
     private Long id;
     private String nome;
     private String emailCliente;
-    private String validacao;
+    private String senha;
     
-    public Usuario(String nome, String emailCliente, String validacao) {
+    public Usuario(String nome, String emailCliente, String senha) {
         this.nome = nome;
         this.emailCliente = emailCliente;
-        this.validacao = validacao;
+        this.senha = senha;
     }
 
     public String getNome() {
@@ -46,12 +46,12 @@ public class Usuario {
         this.emailCliente = emailCliente;
     }
 
-    public String getValidacao() {
-        return validacao;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setValidacao(String validacao) {
-        this.validacao = validacao;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 }
     
