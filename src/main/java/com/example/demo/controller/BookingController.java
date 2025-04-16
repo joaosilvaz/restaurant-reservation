@@ -2,18 +2,13 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Booking;
 import com.example.demo.model.BookingFilter;
-import com.example.demo.model.BookingFilter;
 import com.example.demo.repository.BookingRepository;
 import com.example.demo.repository.BookingSpecification;
-
+import org.springframework.data.domain.Pageable;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.web.PageableDefault;
@@ -38,12 +33,10 @@ public class BookingController {
                     @ApiResponse(responseCode = "200")
             }
     )
-    public List<Booking> index() {
-        return repository.findAll();
-    }
+    
     public Page<Booking> index( 
         BookingFilter filter,
-        @PageableDefault (size = 10, sort = "date", direction = Direction.DESC)Pageable pageable){
+        @PageableDefault (size = 10, sort = "dataReserva", direction = Direction.DESC)Pageable pageable){
 
 
 
