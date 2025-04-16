@@ -1,13 +1,22 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Booking;
+import com.example.demo.model.BookingFilter;
+import com.example.demo.model.BookingFilter;
 import com.example.demo.repository.BookingRepository;
+import com.example.demo.repository.BookingSpecification;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,6 +30,7 @@ public class BookingController {
     private BookingRepository repository;
 
     @GetMapping
+    
     @Operation(
             summary = "Listar todas as reservas",
             description = "Listando as reservas criadas pelo usuário",
@@ -31,14 +41,38 @@ public class BookingController {
     public List<Booking> index() {
         return repository.findAll();
     }
+    public Page<Booking> index( 
+        BookingFilter filter,
+        @PageableDefault (size = 10, sort = "date", direction = Direction.DESC)Pageable pageable){
+
+
+
+                // var probe = Booking.builder()
+                // .telefoneCliente(filter.telefoneCliene())
+                // .mesa(filter.mesa())
+                // .dataReserva(filter.startDate)
+                // .build();
+
+                //  var matcher = ExampleMatcher
+                //         .matchingAll()
+                //         .withIgnoreCase()
+                //         .
+
+                // var example =Example.of(probe);
+                var specification = BookingSpecification.withFilters(filter);
+
+                return repository.findAll(specification, pageable);
+    }
+
+
 
     @PostMapping
     @Operation(
             summary = "Cadastrar Reserva",
             description = "Insere uma reserva",
             responses = {
-                    @ApiResponse(responseCode = "201"),
-                    @ApiResponse(responseCode = "400")
+                    @ApiResponse(responseCode = "200")
+  
             }
     )
     @ResponseStatus(

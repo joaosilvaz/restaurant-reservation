@@ -12,7 +12,7 @@ import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
 @EnableCaching
-@OpenAPIDefinition(info = @Info(title = "Restaurant Reservation", description = "Aqui vai a descrição", version = "v1"))
+@OpenAPIDefinition(info = @Info(title = "Restaurant Reservation", description = "Bem-vindo ao repositório do Yamato Sushi, um sistema de reservas para restaurantes desenvolvido para otimizar e facilitar a gestão de mesas e clientes.", version = "v1"))
 
 
 public class App {
