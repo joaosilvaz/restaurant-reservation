@@ -20,7 +20,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/bookings")
 public class BookingController {
-
     @Autowired
     private BookingRepository repository;
 
@@ -38,26 +37,9 @@ public class BookingController {
         BookingFilter filter,
         @PageableDefault (size = 10, sort = "dataReserva", direction = Direction.DESC)Pageable pageable){
 
-
-
-                // var probe = Booking.builder()
-                // .telefoneCliente(filter.telefoneCliene())
-                // .mesa(filter.mesa())
-                // .dataReserva(filter.startDate)
-                // .build();
-
-                //  var matcher = ExampleMatcher
-                //         .matchingAll()
-                //         .withIgnoreCase()
-                //         .
-
-                // var example =Example.of(probe);
                 var specification = BookingSpecification.withFilters(filter);
-
                 return repository.findAll(specification, pageable);
     }
-
-
 
     @PostMapping
     @Operation(

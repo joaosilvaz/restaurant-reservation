@@ -38,6 +38,9 @@ public class BookingSpecification {
 
             var arrayPredicates = predicates.toArray(new Predicate[0]);
             return cb.and(arrayPredicates);
+
+            var arrayPredicates = predicates.toArray(new Predicate[0]);
+            return cb.and(arrayPredicates);
         };
     }
 
