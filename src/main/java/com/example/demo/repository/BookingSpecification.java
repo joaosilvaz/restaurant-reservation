@@ -28,13 +28,15 @@ public class BookingSpecification {
 
             if (filter.dataReservaInicial() != null && filter.dataReservaFinal() != null){
                 predicates.add(
-                    cb.between(root.get("date"), filter.(()));
-                )
-
-            }
-            if (filter.dataReserva() != null && filter.endDate() == null){
+                    cb.between(root.get("date"), filter.dataReservaInicial(), filter.dataReservaFinal()));
                 
             }
+            if (filter.dataReservaInicial() != null && filter.dataReservaFinal() == null){
+                cb.equal(root.get("date"), filter.dataReservaInicial());                
+            }
+
+            var arrayPredicates = predicates.toArray(new Predicate[0]);
+            return cb.and(arrayPredicates);
         };
     }
     

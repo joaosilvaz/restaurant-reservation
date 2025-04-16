@@ -2,15 +2,13 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Booking;
 import com.example.demo.model.BookingFilter;
-import com.example.demo.model.BookingFilter;
 import com.example.demo.repository.BookingRepository;
 import com.example.demo.repository.BookingSpecification;
-
+import org.springframework.data.domain.Pageable;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
