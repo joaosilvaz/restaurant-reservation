@@ -40,9 +40,9 @@ public class DatabaseSeeder {
         bookingRepository.saveAll(bookings);
 
         var usuario = List.of(
-                Usuario.builder().nome("João Pedro").emailCliente("jp@gmail.com").validacao("123456").build(),
-                Usuario.builder().nome("João").emailCliente("jota@gmail.com").validacao("123").build(),
-                Usuario.builder().nome("Pedro").emailCliente("pedro@gmail.com").validacao("1234").build()
+                Usuario.builder().nome("João Pedro").emailCliente("jp@gmail.com").senha("123456").build(),
+                Usuario.builder().nome("João").emailCliente("jota@gmail.com").senha("123").build(),
+                Usuario.builder().nome("Pedro").emailCliente("pedro@gmail.com").senha("1234").build()
         );
 
         usuarioRepository.saveAll(usuario);

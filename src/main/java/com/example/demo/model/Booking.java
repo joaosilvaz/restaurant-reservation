@@ -2,7 +2,7 @@ package com.example.demo.model;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Random;
+// import java.util.Random;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,7 +29,6 @@ public class Booking {
     private int quantidadePessoas;
     private int mesa;
 
-
     public Booking(String user, String telefoneCliente, String emailCliente, LocalDate dataReserva,
             LocalTime horaReserva, int quantidadePessoas, Boolean status, int mesa) {
         this.telefoneCliente = telefoneCliente;
@@ -55,8 +54,6 @@ public class Booking {
         this.telefoneCliente = telefoneCliente;
     }
 
-   
-
     public LocalDate getDataReserva() {
         return dataReserva;
     }
@@ -80,7 +77,6 @@ public class Booking {
     public void setQuantidadePessoas(int quantidadePessoas) {
         this.quantidadePessoas = quantidadePessoas;
     }
-
 
     public int getMesa() {
         return mesa;
