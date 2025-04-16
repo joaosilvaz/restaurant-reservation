@@ -26,9 +26,9 @@ public class BookingSpecification {
 
             }
 
-            if (filter.dataReserva() != null && filter.endDate() != null){
+            if (filter.dataReservaInicial() != null && filter.dataReservaFinal() != null){
                 predicates.add(
-                    cb.between(root.get("date"), filter.startDate(()));
+                    cb.between(root.get("date"), filter.(()));
                 )
 
             }

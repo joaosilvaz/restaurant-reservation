@@ -4,6 +4,6 @@ import java.time.LocalDate;
 
 public record BookingFilter (
     String telefoneCliene,
-    LocalDate dataReserva,
-    Integer mesa,
-    LocalDate endDate){}
+    LocalDate dataReservaInicial,
+    LocalDate dataReservaFinal,
+    Integer mesa){}
