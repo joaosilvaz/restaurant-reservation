@@ -27,20 +27,21 @@ public class BookingSpecification {
             if (filter.dataReservaInicial() != null && filter.dataReservaFinal() != null) {
                 predicates.add(
                         cb.between(root.get("dataReserva"), filter.dataReservaInicial(), filter.dataReservaFinal()));
-
             }
 
             if (filter.dataReservaInicial() != null && filter.dataReservaFinal() == null) {
                 predicates.add( 
                         cb.equal(root.get("dataReserva"), filter.dataReservaInicial()));
-               
+            }
+
+            if (filter.quantidadePessoas() != null && filter.dataReservaFinal() == null) {
+                predicates.add( 
+                        cb.equal(root.get("quantidadePessoas"), filter.quantidadePessoas()));
             }
 
             var arrayPredicates = predicates.toArray(new Predicate[0]);
             return cb.and(arrayPredicates);
-
-            var arrayPredicates = predicates.toArray(new Predicate[0]);
-            return cb.and(arrayPredicates);
+    
         };
     }
 

@@ -33,6 +33,7 @@ public class UsuarioController {
             @ApiResponse(responseCode = "200")
         }
     )
+
     public List<Usuario> index() {
         return repository.findAll();
     }
@@ -48,12 +49,12 @@ public class UsuarioController {
             @ApiResponse(responseCode = "409") // Conflito (e-mail existente)
         }
     )
+
     public ResponseEntity<?> create(@RequestBody Usuario usuario) {
         if (repository.findByEmailCliente(usuario.getEmailCliente()).isPresent()) {
             return ResponseEntity.status(HttpStatus.CONFLICT)
                                  .body("E-mail já cadastrado.");
         }
-
         Usuario novoUsuario = repository.save(usuario);
         return ResponseEntity.status(HttpStatus.CREATED).body(novoUsuario);
     }
@@ -66,6 +67,7 @@ public class UsuarioController {
             @ApiResponse(responseCode = "200")
         }
     )
+
     public Usuario show(@PathVariable Long id) {
         return repository.findById(id).orElseThrow();
     }
@@ -78,6 +80,7 @@ public class UsuarioController {
             @ApiResponse(responseCode = "200")
         }
     )
+
     public void delete(@PathVariable Long id) {
         repository.deleteById(id);
     }
@@ -90,6 +93,7 @@ public class UsuarioController {
             @ApiResponse(responseCode = "200")
         }
     )
+    
     public Usuario update(@PathVariable Long id, @RequestBody Usuario updatedUsuario) {
         return repository.findById(id)
             .map(u -> {

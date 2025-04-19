@@ -50,9 +50,11 @@ public class BookingController {
   
             }
     )
+
     @ResponseStatus(
         code = HttpStatus.CREATED
     )
+
     public Booking create(@RequestBody Booking booking) {
         return repository.save(booking);
     }
@@ -63,9 +65,9 @@ public class BookingController {
             description = "Demonstra as reservas que apenas o usuário realizou, ou seja, pelo (id)",
             responses = {
                     @ApiResponse(responseCode = "200")
-
             }
     )
+
     public Booking show(@PathVariable Long id) {
         return repository.findById(id).orElseThrow();
     }
@@ -76,7 +78,6 @@ public class BookingController {
             description = "Deletando a reserva apenas que o usuário criou, ou seja ele deleta por ID",
             responses = {
                     @ApiResponse(responseCode = "200")
-
             }
     )
 
@@ -90,9 +91,9 @@ public class BookingController {
             description = "Alterando a reserva apenas que o usuário criou, ou seja ela é alterada por ID",
             responses = {
                     @ApiResponse(responseCode = "200")
-
             }
     )
+    
     public Booking update(@PathVariable Long id, @RequestBody Booking updatedBooking) {
         return repository.findById(id)
                 .map(b -> {

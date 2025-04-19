@@ -85,6 +85,4 @@ public class Booking {
     public void setMesa(int mesa) {
         this.mesa = mesa;
     }
-
-    
 }
